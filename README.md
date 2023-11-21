@@ -2,7 +2,7 @@
 - Meranie a zobrazovanie hlučnosti na 7 segmentovom display pomocou STM
 - Cieľom bude pomocou Mems mikrofónu Inmp441 i2s snímať hlučnosť prostredia a namerané hodnoty zobrazovať na sedem segmentovom display.
 <p align="center">
-    <img src="https://os.mbed.com/media/uploads/bcostm/nucleo_f303k8_2017_10_10.png" "stm microcontroller" width="600">
+    <img src="https://os.mbed.com/media/uploads/bcostm/nucleo_f303k8_2017_10_10.png" alt="stm microcontroller" width="600">
 </p>
 
 - Systém bude navrhnutý pre čip STM32F303K8 na ktorom bude spracovnaý signál z mems mikrofónu a následne zmeraná relatívna hlučnosť, ktorá bude následne zobrazovaná na 7 segmentovom display.
