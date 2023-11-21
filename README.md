@@ -1,6 +1,7 @@
 # VRS_semestralne_zadanie
 - Meranie a zobrazovanie hlučnosti na 7 segmentovom display pomocou STM
 - Cieľom bude pomocou Mems mikrofónu Inmp441 i2s snímať hlučnosť prostredia a namerané hodnoty zobrazovať na sedem segmentovom display.
+- Riešitelia: Matúš Machata a Jakub Rapčan
 <p align="center">
     <img src="https://os.mbed.com/media/uploads/bcostm/nucleo_f303k8_2017_10_10.png" alt="stm microcontroller" width="600">
 </p>
