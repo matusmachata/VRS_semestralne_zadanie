@@ -1,0 +1,15 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:zad3,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:zad3_test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:vrs_cv3_interrupts.elf,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:usart_DMA.elf,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:vrs_cvicenie_4 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:vrs_cvicenie_6,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:pokus4_semestralka Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:i2c_comm.elf,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:project_zad_cv_6_A2 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:mic_reading Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:comms_pokus\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:i2c_comm.elf/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:mic_reading\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:project_zad_cv_6_A2\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:project_zad_cv_6_A2\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:usart_DMA.elf/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:vrs_cv2_ll_programming.elf/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:vrs_cv2_ll_programming.elf/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:vrs_cv3_interrupts.elf/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:zad3_test\ Debug/activeLaunchMode=run

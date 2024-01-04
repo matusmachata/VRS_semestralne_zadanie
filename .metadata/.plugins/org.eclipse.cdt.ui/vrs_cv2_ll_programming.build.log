@@ -1,0 +1,10 @@
+12:12:21 **** Incremental Build of configuration Debug for project vrs_cv2_ll_programming ****
+make -j16 all 
+arm-none-eabi-size   vrs_cv2_ll_programming.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1820	     12	   1572	   3404	    d4c	vrs_cv2_ll_programming.elf
+Finished building: default.size.stdout
+ 
+
+12:12:21 Build Finished. 0 errors, 0 warnings. (took 425ms)
+

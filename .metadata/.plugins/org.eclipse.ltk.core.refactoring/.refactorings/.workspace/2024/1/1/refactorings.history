@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;usb-microphone&apos;" deleteContents="false" description="Delete resource &apos;usb-microphone&apos;" element1="/usb-microphone" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1704212406610"/>
+</session>

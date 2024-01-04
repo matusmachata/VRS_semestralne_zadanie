@@ -1,0 +1,17 @@
+21:12:34 **** Incremental Build of configuration Debug for project project_zad_cv_6_A2 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/hts221.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F303x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=8000000 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/hts221.d" -MT"Core/Src/hts221.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/hts221.o"
+arm-none-eabi-gcc -o "project_zad_cv_6_A2.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Matus\Desktop\FEI\semester_7\semester7\VRS\IDE\project_zad_cv_6_A2\STM32F303K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="project_zad_cv_6_A2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project_zad_cv_6_A2.elf
+ 
+arm-none-eabi-size   project_zad_cv_6_A2.elf 
+arm-none-eabi-objdump -h -S  project_zad_cv_6_A2.elf  > "project_zad_cv_6_A2.list"
+   text	   data	    bss	    dec	    hex	filename
+  35648	    488	   1928	  38064	   94b0	project_zad_cv_6_A2.elf
+Finished building: default.size.stdout
+ 
+Finished building: project_zad_cv_6_A2.list
+ 
+
+21:12:35 Build Finished. 0 errors, 0 warnings. (took 603ms)
+
