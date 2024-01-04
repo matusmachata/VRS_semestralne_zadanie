@@ -57,6 +57,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define CLK_Pin GPIO_PIN_8
+#define CLK_GPIO_Port GPIOA
+#define DATA_Pin GPIO_PIN_9
+#define DATA_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 

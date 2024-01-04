@@ -21,7 +21,6 @@
 #include "dma.h"
 #include "i2s.h"
 #include "gpio.h"
-#include "TM1637.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -65,7 +64,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-volatile uint8_t displayColon = 0;
+
 /* USER CODE END 0 */
 
 /**
@@ -101,13 +100,14 @@ int main(void)
   MX_I2S2_Init();
   /* USER CODE BEGIN 2 */
 
-  TM1637_SetBrightness(7);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    /* USER CODE END WHILE */
 	  size_t bytesIn = 0;
 //	      HAL_SPI_Receive(&hspi1, (uint8_t*)sBuffer, BUFFER_LEN * 2, 1000);
 	  	  HAL_I2S_Receive_DMA(&hi2s2, (uint16_t*)sBuffer, BUFFER_LEN);
@@ -116,13 +116,6 @@ int main(void)
 	        mean += sBuffer[i];
 	      }
 	      mean /= BUFFER_LEN;
-
-	      float absMean = fabs(mean);
-		  TM1637_DisplayDecimal(absMean, 1);
-		  HAL_Delay(200);
-
-    /* USER CODE END WHILE */
-
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

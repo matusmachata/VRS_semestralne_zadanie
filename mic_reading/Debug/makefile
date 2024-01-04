@@ -60,8 +60,8 @@ all: main-build
 main-build: mic_reading.elf secondary-outputs
 
 # Tool invocations
-mic_reading.elf mic_reading.map: $(OBJS) $(USER_OBJS) C:\Users\Matus\Desktop\FEI\semester_7\VRS\cv1\mic_reading\STM32F302R8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "mic_reading.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Matus\Desktop\FEI\semester_7\VRS\cv1\mic_reading\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="mic_reading.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+mic_reading.elf mic_reading.map: $(OBJS) $(USER_OBJS) C:\Users\Matus\Desktop\FEI\semester_7\VRS_semestralne_zadanie\mic_reading\STM32F302R8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "mic_reading.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Matus\Desktop\FEI\semester_7\VRS_semestralne_zadanie\mic_reading\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="mic_reading.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
