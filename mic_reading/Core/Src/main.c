@@ -34,6 +34,7 @@
 float mean;
 //SPI_HandleTypeDef hspi1;
 int16_t sBuffer[BUFFER_LEN];
+volatile int16_t sample;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -54,6 +55,7 @@ int16_t sBuffer[BUFFER_LEN];
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
 
 /* USER CODE END PV */
 
@@ -102,6 +104,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   TM1637_SetBrightness(7);
+
+  HAL_I2S_Receive_DMA(&hi2s2, (uint8_t*)sBuffer, sizeof(sBuffer)/2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -110,16 +114,19 @@ int main(void)
   {
 	  size_t bytesIn = 0;
 //	      HAL_SPI_Receive(&hspi1, (uint8_t*)sBuffer, BUFFER_LEN * 2, 1000);
-	  	  HAL_I2S_Receive_DMA(&hi2s2, (uint16_t*)sBuffer, BUFFER_LEN);
-	      mean = 0;
-	      for (int i = 0; i < BUFFER_LEN; ++i) {
-	        mean += sBuffer[i];
-	      }
-	      mean /= BUFFER_LEN;
+//	  	  HAL_I2S_Receive_DMA(&hi2s2, (uint8_t*)sBuffer, sizeof(sBuffer)/2);
 
-	      float absMean = fabs(mean);
-		  TM1637_DisplayDecimal(absMean, 1);
-		  HAL_Delay(200);
+//	      mean = 0;
+//	      for (int i = 0; i < BUFFER_LEN; ++i) {
+//	        mean += sBuffer[i];
+//	      }
+//	      mean /= BUFFER_LEN;
+//
+//	      float absMean = fabs(mean);
+//	  	  printf("%d\n",sample);
+//	  	  float absSample = fabs(sample);
+		  TM1637_DisplayDecimal(sample, 1);
+//		  HAL_Delay(200);
 
     /* USER CODE END WHILE */
 
@@ -165,6 +172,12 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_I2S_RxCptlCallBack(I2S_HandleTypeDef *hi2s){
+
+	sample = sBuffer[0];
+
+}
 
 /* USER CODE END 4 */
 
