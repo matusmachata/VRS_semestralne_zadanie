@@ -178,7 +178,6 @@ void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s){
     }
     mean /= j;
     sample = mean;
-//    sample = 5;
 //	sample = sBuffer[0];
 
 }
