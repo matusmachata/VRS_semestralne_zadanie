@@ -21,7 +21,6 @@
 #include "dma.h"
 #include "i2s.h"
 #include "gpio.h"
-#include "TM1637.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -112,21 +111,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  size_t bytesIn = 0;
-//	      HAL_SPI_Receive(&hspi1, (uint8_t*)sBuffer, BUFFER_LEN * 2, 1000);
-//	  	  HAL_I2S_Receive_DMA(&hi2s2, (uint8_t*)sBuffer, sizeof(sBuffer)/2);
 
-//	      mean = 0;
-//	      for (int i = 0; i < BUFFER_LEN; ++i) {
-//	        mean += sBuffer[i];
-//	      }
-//	      mean /= BUFFER_LEN;
-//
-//	      float absMean = fabs(mean);
-//	  	  printf("%d\n",sample);
-//	  	  float absSample = fabs(sample);
-		  TM1637_DisplayDecimal(sample, 1);
-//		  HAL_Delay(200);
+	  	  int16_t absSample = abs(sample);
+		  TM1637_DisplayDecimal(absSample, 1);
+
+//		  HAL_Delay(50);
 
     /* USER CODE END WHILE */
 
@@ -150,7 +139,9 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -160,12 +151,12 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -173,9 +164,22 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
-void HAL_I2S_RxCptlCallBack(I2S_HandleTypeDef *hi2s){
+void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s){
 
-	sample = sBuffer[0];
+
+    mean = 0;
+    int j = 0;
+    for (int i = 0; i < BUFFER_LEN; ++i) {
+    	if ((i % 4) == 0){
+    		mean += sBuffer[i];
+    		j++;
+    	}
+
+    }
+    mean /= j;
+    sample = mean;
+//    sample = 5;
+//	sample = sBuffer[0];
 
 }
 
